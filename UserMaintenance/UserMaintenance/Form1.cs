@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace UserMaintenance
             InitializeComponent();
             lblFullName.Text = Resource.FullName;            
             btnAdd.Text = Resource.Add;
+            btnSave.Text = Resource.Save;
 
             listUsers.DataSource = users;
             listUsers.ValueMember = "ID";
@@ -33,6 +35,27 @@ namespace UserMaintenance
                 FullName = txtFullName.Text,               
             };
             users.Add(u);
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.InitialDirectory = @"C:\";
+            sfd.RestoreDirectory = true;
+            sfd.FileName = "*.txt";
+            sfd.DefaultExt = "txt";
+            sfd.Filter="txt files (*.txt)|*.txt";
+
+            if (sfd.ShowDialog()==DialogResult.OK)
+            {
+                Stream fileStream = sfd.OpenFile();
+                StreamWriter sw = new StreamWriter(fileStream);
+
+                sw.Write(listUsers.Text);
+
+                sw.Close();
+            }
 
         }
     }
