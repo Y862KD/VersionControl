@@ -33,6 +33,7 @@
             this.lblFullName = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listUsers
@@ -71,7 +72,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(364, 143);
+            this.btnSave.Location = new System.Drawing.Point(364, 172);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(213, 24);
             this.btnSave.TabIndex = 6;
@@ -79,11 +80,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(364, 132);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(213, 23);
+            this.btnRemove.TabIndex = 7;
+            this.btnRemove.Text = "button3";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblFullName);
@@ -103,6 +115,7 @@
         private System.Windows.Forms.Label lblFullName;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnRemove;
     }
 }
 
