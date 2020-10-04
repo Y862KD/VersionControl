@@ -1,6 +1,7 @@
 ﻿using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,6 @@ namespace UserMaintenance.Entities
                     LastName,
                     FirstName);
             }
-        }
+        }        
     }
 }
