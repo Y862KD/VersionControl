@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 namespace ExcelGenerálás
 {
@@ -14,7 +16,8 @@ namespace ExcelGenerálás
     {
         List<Flat> Flats;
         RealEstateEntities context = new RealEstateEntities();
-
+        
+        
         public Form1()
         {
             InitializeComponent();
