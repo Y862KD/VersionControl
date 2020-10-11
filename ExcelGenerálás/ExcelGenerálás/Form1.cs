@@ -21,11 +21,53 @@ namespace ExcelGenerálás
         Excel.Workbook xlWB;
         Excel.Worksheet xlSheet;
 
+
+
+        string[] headers = new string[] {
+                "Kód",
+                "Eladó",
+                "Oldal",
+                "Kerület",
+                "Lift",
+                "Szobák száma",
+                "Alapterület (m2)",
+                "Ár (mFt)",
+                "Négyzetméter ár (Ft/m2)"};
+
         public Form1()
         {
             InitializeComponent();
             LoadData();
             CreateExcel();
+            FormatTable();
+        }
+
+        private void FormatTable()
+        {
+
+            int lastRowID = xlSheet.UsedRange.Rows.Count;
+            int lastColumnID = xlSheet.UsedRange.Columns.Count;
+
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.Interior.Color = Color.LightBlue;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range tableRange = xlSheet.get_Range(GetCell(1, 1), GetCell(lastRowID, lastColumnID));
+            tableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range firstColumnRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, lastColumnID));
+            firstColumnRange.Font.Bold = true;
+            firstColumnRange.Interior.Color = Color.LightYellow;
+
+            Excel.Range lastColumnRange = xlSheet.get_Range(GetCell(1, lastColumnID), GetCell(lastRowID, lastColumnID));
+            lastColumnRange.Interior.Color = Color.LightGreen;
+            lastColumnRange.NumberFormat = "#,##0.00";
+
         }
 
         private void LoadData()
@@ -62,18 +104,7 @@ namespace ExcelGenerálás
         }
         private void CreateTable()
         {
-            string[] headers = new string[] {
-                "Kód",
-                "Eladó",
-                "Oldal",
-                "Kerület",
-                "Lift",
-                "Szobák száma",
-                "Alapterület (m2)",
-                "Ár (mFt)",
-                "Négyzetméter ár (Ft/m2)"};
-
-            
+                        
             for (int i = 0; i < headers.Length; i++)
             {
                 xlSheet.Cells[1, 1] = headers[0];
