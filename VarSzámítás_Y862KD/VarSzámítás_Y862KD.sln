@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VarSzámítás_Y862KD", "VarSzámítás_Y862KD\VarSzámítás_Y862KD.csproj", "{53E62E9F-3D43-43EB-9C65-10484879F4CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53E62E9F-3D43-43EB-9C65-10484879F4CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53E62E9F-3D43-43EB-9C65-10484879F4CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53E62E9F-3D43-43EB-9C65-10484879F4CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53E62E9F-3D43-43EB-9C65-10484879F4CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D00C0081-9512-4DF4-92CB-A43282CDA856}
+	EndGlobalSection
+EndGlobal
