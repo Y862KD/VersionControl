@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace VarSzámítás_Y862KD
         List<Tick> Ticks;
         PortfolioEntities context = new PortfolioEntities();
         List<PortfolioItem> Portfolio = new List<PortfolioItem>();
+        
 
 
 
@@ -25,6 +27,11 @@ namespace VarSzámítás_Y862KD
             Ticks = context.Ticks.ToList();
             dataGridView1.DataSource = Ticks;
             CreatePortfolio();
+            btnSave.BackColor = Color.DarkKhaki;
+            btnSave.Text = "Mentés";
+            btnSave.Height = 40;
+            btnSave.Width = 60;
+                        
 
             List<decimal> Nyereségek = new List<decimal>();
             int intervalum = 30;
@@ -44,6 +51,8 @@ namespace VarSzámítás_Y862KD
                                       select x)
                                         .ToList();
             MessageBox.Show(nyereségekRendezve[nyereségekRendezve.Count() / 5].ToString());
+
+            listBox1.DataSource = Nyereségek;
 
         }
 
@@ -69,6 +78,25 @@ namespace VarSzámítás_Y862KD
                 value += (decimal)last.Price * item.Volume;
             }
             return value;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.InitialDirectory = @"C:\";
+            sfd.RestoreDirectory = true;
+            sfd.FileName = "*.csv";
+            sfd.DefaultExt = "csv";
+            sfd.Filter = "csv files (*.csv)|*.csv";
+
+            if(sfd.ShowDialog()==DialogResult.OK)
+            {
+                Stream fileStream = sfd.OpenFile();
+                StreamWriter sw = new StreamWriter(fileStream);
+
+                sw.w
+                
+            }
         }
     }
 }
