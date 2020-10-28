@@ -24,11 +24,21 @@ namespace MnbCurrencyReader
         {
             InitializeComponent();
 
-            MnbSoap();                
-                          
-            ChartDisplay();
+            RefreshData();
+
+
 
             dataGridView1.DataSource = Rates;
+        }
+
+        private void RefreshData()
+        {
+            Rates.Clear();
+
+            MnbSoap();
+
+            ChartDisplay();
+
         }
 
         private void MnbSoap()
@@ -38,9 +48,9 @@ namespace MnbCurrencyReader
             var request = new GetExchangeRatesRequestBody()
 
             {
-                currencyNames = "EUR",
-                startDate = "2020-01-01",
-                endDate = "2020-06-01"
+                currencyNames = comboBoxCurrency.SelectedItem.ToString(),
+                startDate = dateTimePickerStart.Value.Date.ToString("yyyy-MM-dd"),
+                endDate = dateTimePickerEnd.Value.Date.ToString("yyyy-MM-dd")
             };
 
             var response = mnbService.GetExchangeRates(request);
@@ -92,5 +102,19 @@ namespace MnbCurrencyReader
 
         }
 
+        private void dateTimePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void dateTimePickerEnd_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void comboBoxCurrency_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
     }
 }
