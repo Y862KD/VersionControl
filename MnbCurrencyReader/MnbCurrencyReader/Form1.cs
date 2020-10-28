@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MnbCurrencyReader.MnbServiceReference;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,26 @@ namespace MnbCurrencyReader
 {
     public partial class Form1 : Form
     {
+        string currencyNames;
+        string startDate;
+        string endDate;
+
         public Form1()
         {
             InitializeComponent();
+
+            var mnbService = new MNBArfolyamServiceSoapClient();
+
+            var request = new GetExchangeRatesRequestBody();
+            {
+                currencyNames = "EUR";
+                startDate = "2020-01-01";
+                endDate = "2020-06-01";
+            }
+
+            var response = mnbService.GetExchangeRates(request);
+            var result = response.GetExchangeRatesResult;
+
         }
     }
 }
