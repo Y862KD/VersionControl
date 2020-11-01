@@ -26,8 +26,6 @@ namespace MnbCurrencyReader
 
             RefreshData();
 
-
-
             dataGridView1.DataSource = Rates;
         }
 
