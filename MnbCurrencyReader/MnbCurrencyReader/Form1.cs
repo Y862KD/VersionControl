@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 using System.ServiceModel;
+using System.Net.Http.Headers;
 
 namespace MnbCurrencyReader
 {
@@ -19,14 +20,60 @@ namespace MnbCurrencyReader
     {
 
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<RateData> Currencies = new BindingList<RateData>();
 
         public Form1()
         {
             InitializeComponent();
 
+            //A 3. feladatban leírtak mintájára a Form1 konstruktorában 
+            //(a RefreshData függvény hívása előtt, de az InitalizeComponent hívás után) 
+            //kérdezd le az MNB szolgáltatásból az elérhető valuták listáját a GetCurrencies függvénnyel.
+
+            MnbCurSoap();
+
+            comboBoxCurrency.DataSource = Currencies;
+
             RefreshData();
 
             dataGridView1.DataSource = Rates;
+            
+        }
+
+        private void MnbCurSoap()
+        {
+            var mnbService = new MNBArfolyamServiceSoapClient();
+
+            var requestCurrency = new GetCurrenciesRequestBody();
+
+            var responseCurrency = mnbService.GetCurrencies(requestCurrency);
+
+            var resultCurrency = responseCurrency.GetCurrenciesResult;
+
+            XmlFeldolgozasCurrency(resultCurrency);
+
+            
+        }
+
+        private void XmlFeldolgozasCurrency(string resultCurrency)
+        {
+            var xmlCurrency = new XmlDocument();
+            xmlCurrency.LoadXml(resultCurrency);
+
+            foreach (XmlElement element in xmlCurrency.DocumentElement)
+            {
+
+                var currency = new RateData();
+                Currencies.Add(currency);
+
+
+                var childElement = (XmlElement)element.ChildNodes[0];
+                currency.Currency = childElement.GetAttribute("curr");
+
+                if (childElement == null)
+                    continue;
+
+            }
         }
 
         private void RefreshData()
@@ -44,7 +91,6 @@ namespace MnbCurrencyReader
             var mnbService = new MNBArfolyamServiceSoapClient();
 
             var request = new GetExchangeRatesRequestBody()
-
             {
                 currencyNames = comboBoxCurrency.SelectedItem.ToString(),
                 startDate = dateTimePickerStart.Value.Date.ToString("yyyy-MM-dd"),

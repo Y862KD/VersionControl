@@ -43,11 +43,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(52, 138);
+            this.dataGridView1.Location = new System.Drawing.Point(39, 112);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(405, 300);
+            this.dataGridView1.Size = new System.Drawing.Size(304, 244);
             this.dataGridView1.TabIndex = 0;
             // 
             // chartRateData
@@ -56,29 +57,32 @@
             this.chartRateData.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.chartRateData.Legends.Add(legend2);
-            this.chartRateData.Location = new System.Drawing.Point(463, 138);
+            this.chartRateData.Location = new System.Drawing.Point(347, 112);
+            this.chartRateData.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.chartRateData.Name = "chartRateData";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.chartRateData.Series.Add(series2);
-            this.chartRateData.Size = new System.Drawing.Size(470, 300);
+            this.chartRateData.Size = new System.Drawing.Size(352, 244);
             this.chartRateData.TabIndex = 1;
             this.chartRateData.Text = "chart1";
             // 
             // dateTimePickerStart
             // 
-            this.dateTimePickerStart.Location = new System.Drawing.Point(52, 99);
+            this.dateTimePickerStart.Location = new System.Drawing.Point(39, 80);
+            this.dateTimePickerStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerStart.Name = "dateTimePickerStart";
-            this.dateTimePickerStart.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerStart.Size = new System.Drawing.Size(151, 20);
             this.dateTimePickerStart.TabIndex = 2;
             this.dateTimePickerStart.ValueChanged += new System.EventHandler(this.dateTimePickerStart_ValueChanged);
             // 
             // dateTimePickerEnd
             // 
-            this.dateTimePickerEnd.Location = new System.Drawing.Point(258, 99);
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(194, 80);
+            this.dateTimePickerEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dateTimePickerEnd.Name = "dateTimePickerEnd";
-            this.dateTimePickerEnd.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(151, 20);
             this.dateTimePickerEnd.TabIndex = 3;
             this.dateTimePickerEnd.ValueChanged += new System.EventHandler(this.dateTimePickerEnd_ValueChanged);
             // 
@@ -87,23 +91,25 @@
             this.comboBoxCurrency.FormattingEnabled = true;
             this.comboBoxCurrency.Items.AddRange(new object[] {
             "EUR"});
-            this.comboBoxCurrency.Location = new System.Drawing.Point(465, 95);
+            this.comboBoxCurrency.Location = new System.Drawing.Point(349, 77);
+            this.comboBoxCurrency.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBoxCurrency.Name = "comboBoxCurrency";
-            this.comboBoxCurrency.Size = new System.Drawing.Size(121, 24);
+            this.comboBoxCurrency.Size = new System.Drawing.Size(92, 21);
             this.comboBoxCurrency.TabIndex = 4;
             this.comboBoxCurrency.Text = "EUR";
             this.comboBoxCurrency.SelectedIndexChanged += new System.EventHandler(this.comboBoxCurrency_SelectedIndexChanged);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(945, 450);
+            this.ClientSize = new System.Drawing.Size(709, 366);
             this.Controls.Add(this.comboBoxCurrency);
             this.Controls.Add(this.dateTimePickerEnd);
             this.Controls.Add(this.dateTimePickerStart);
             this.Controls.Add(this.chartRateData);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
