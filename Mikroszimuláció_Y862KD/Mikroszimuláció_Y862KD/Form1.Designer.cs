@@ -40,7 +40,7 @@
             // 
             // numericUpDownYear
             // 
-            this.numericUpDownYear.Location = new System.Drawing.Point(104, 59);
+            this.numericUpDownYear.Location = new System.Drawing.Point(122, 87);
             this.numericUpDownYear.Maximum = new decimal(new int[] {
             2099,
             0,
@@ -62,15 +62,15 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(48, 90);
+            this.richTextBox1.Location = new System.Drawing.Point(48, 116);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(662, 446);
+            this.richTextBox1.Size = new System.Drawing.Size(717, 420);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
             // textBoxPath
             // 
-            this.textBoxPath.Location = new System.Drawing.Point(307, 59);
+            this.textBoxPath.Location = new System.Drawing.Point(371, 86);
             this.textBoxPath.Name = "textBoxPath";
             this.textBoxPath.Size = new System.Drawing.Size(182, 22);
             this.textBoxPath.TabIndex = 2;
@@ -78,24 +78,26 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 61);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(57, 89);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 17);
+            this.label1.Size = new System.Drawing.Size(59, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "Záróév";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(204, 58);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(250, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(97, 17);
+            this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 4;
             this.label2.Text = "Népességi fájl";
             // 
             // buttonBrowse
             // 
-            this.buttonBrowse.Location = new System.Drawing.Point(495, 58);
+            this.buttonBrowse.Location = new System.Drawing.Point(559, 86);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(100, 23);
             this.buttonBrowse.TabIndex = 5;
@@ -105,7 +107,7 @@
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(610, 59);
+            this.buttonStart.Location = new System.Drawing.Point(665, 86);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(100, 23);
             this.buttonStart.TabIndex = 6;

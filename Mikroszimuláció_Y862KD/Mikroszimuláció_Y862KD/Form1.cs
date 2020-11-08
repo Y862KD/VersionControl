@@ -28,12 +28,10 @@ namespace Mikroszimuláció_Y862KD
         public Form1()
         {
             InitializeComponent();
-
-            
+                        
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
-
-            
+                       
 
         }
 
@@ -46,6 +44,8 @@ namespace Mikroszimuláció_Y862KD
                 {
                     // Ide jön a szimulációs lépés
                     SimStep(year, Population[i]);
+                    if (Population[i].Gender == Gender.Male) Male.Add(Population[i]);
+                    else Female.Add(Population[i]);
                     
                 }
 
@@ -59,6 +59,7 @@ namespace Mikroszimuláció_Y862KD
                 string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
 
                 DisplayResults(year, nbrOfMales, nbrOfFemales);
+                
 
             }
         }
@@ -167,8 +168,7 @@ namespace Mikroszimuláció_Y862KD
             richTextBox1.Clear();
             Male.Clear();
             Female.Clear();
-            Simulation();
-            
+            Simulation();            
 
         }
 
