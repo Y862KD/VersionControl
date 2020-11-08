@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,7 +19,10 @@ namespace Mikroszimuláció_Y862KD
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
         Random rng = new Random(1234);
-   
+        List<Person> Male = new List<Person>();
+        List<Person> Female = new List<Person>();
+
+
 
 
         public Form1()
@@ -41,7 +45,8 @@ namespace Mikroszimuláció_Y862KD
                 for (int i = 0; i < Population.Count; i++)
                 {
                     // Ide jön a szimulációs lépés
-                    SimStep(year, Population[i]);   
+                    SimStep(year, Population[i]);
+                    
                 }
 
                 int nbrOfMales = (from x in Population
@@ -51,7 +56,10 @@ namespace Mikroszimuláció_Y862KD
                                     where x.Gender == Gender.Female && x.IsAlive
                                     select x).Count();
                 Console.WriteLine(
-                    string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+                string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
+
+                DisplayResults(year, nbrOfMales, nbrOfFemales);
+
             }
         }
 
@@ -156,7 +164,17 @@ namespace Mikroszimuláció_Y862KD
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
+            richTextBox1.Clear();
+            Male.Clear();
+            Female.Clear();
             Simulation();
+            
+
+        }
+
+        private void DisplayResults(int year, int nbrOfMales, int nbrOfFemales)
+        {
+            richTextBox1.AppendText("Szimulációs év: " + year + "\n\tFiúk: " + nbrOfMales + "\n\tLányok: " + nbrOfFemales + "\n\n");
         }
 
         public void buttonBrowse_Click(object sender, EventArgs e)
