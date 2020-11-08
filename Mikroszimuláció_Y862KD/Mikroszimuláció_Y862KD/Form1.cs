@@ -18,23 +18,30 @@ namespace Mikroszimuláció_Y862KD
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
         Random rng = new Random(1234);
+   
 
 
         public Form1()
         {
             InitializeComponent();
 
-            Population = GetPopulation(@"C:\Temp\nép-teszt.csv");
+            
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
 
-            for (int year = 2005; year <= 2024; year++)
+            
+
+        }
+
+        private void Simulation()
+        {
+            for (int year = 2005; year <= numericUpDownYear.Value; year++)
             {
                 // Végigmegyünk az összes személyen
                 for (int i = 0; i < Population.Count; i++)
                 {
                     // Ide jön a szimulációs lépés
-                    SimStep(year, Population[i]);
+                    SimStep(year, Population[i]);   
                 }
 
                 int nbrOfMales = (from x in Population
@@ -46,8 +53,6 @@ namespace Mikroszimuláció_Y862KD
                 Console.WriteLine(
                     string.Format("Év:{0} Fiúk:{1} Lányok:{2}", year, nbrOfMales, nbrOfFemales));
             }
-
-
         }
 
         private void SimStep(int year, Person person)
@@ -147,6 +152,19 @@ namespace Mikroszimuláció_Y862KD
             }
 
             return population;
+        }
+
+        private void buttonStart_Click(object sender, EventArgs e)
+        {
+            Simulation();
+        }
+
+        public void buttonBrowse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog browse = new OpenFileDialog();
+            if (browse.ShowDialog() == DialogResult.OK) textBoxPath.Text = browse.FileName;
+            Population = GetPopulation(textBoxPath.Text);
+
         }
     }
 }
