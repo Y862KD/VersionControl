@@ -17,6 +17,8 @@ namespace Mikroszimuláció_Y862KD
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
+        Random rng = new Random(1234);
+
 
         public Form1()
         {
@@ -26,9 +28,7 @@ namespace Mikroszimuláció_Y862KD
             BirthProbabilities = GetBirthProbabilities(@"C:\Temp\születés.csv");
             DeathProbabilities = GetDeathProbabilities(@"C:\Temp\halál.csv");
 
-            dataGridView1.DataSource = Population;
-            dataGridView2.DataSource = BirthProbabilities;
-            dataGridView3.DataSource = DeathProbabilities;
+
 
 
         }
