@@ -10,13 +10,13 @@ namespace FejlesztesiMintak_Y862KD.Entities
 {
     public class Present : Toy
     {
-        public Rectangle BoxColor { get; private set; }
-        public Rectangle RibbonColor { get; private set; }
+        public SolidBrush BoxColor { get; private set; }
+        public SolidBrush RibbonColor { get; private set; }
 
         public Present(Color color)
         {
-            BoxColor = new (color);
-            RibbonColor = new Rectangle(color);
+            BoxColor = new SolidBrush(color);
+            RibbonColor = new SolidBrush(color);
         }
 
         protected override void DrawImage(Graphics g)

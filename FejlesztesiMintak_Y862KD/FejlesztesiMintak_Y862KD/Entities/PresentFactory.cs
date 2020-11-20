@@ -14,7 +14,7 @@ namespace FejlesztesiMintak_Y862KD.Entities
 
         public Toy CreateNew()
         {
-            return new Ball(BoxColor);
+            return new Present(BoxColor);
         }
     }
 }
