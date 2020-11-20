@@ -13,15 +13,18 @@ namespace FejlesztesiMintak_Y862KD.Entities
         public SolidBrush BoxColor { get; private set; }
         public SolidBrush RibbonColor { get; private set; }
 
-        public Present(Color color)
+        public Present(Color color1, Color color2)
         {
-            BoxColor = new SolidBrush(color);
-            RibbonColor = new SolidBrush(color);
+            BoxColor = new SolidBrush(color1);
+            RibbonColor = new SolidBrush(color2);
         }
 
         protected override void DrawImage(Graphics g)
         {
             g.FillRectangle(BoxColor, 0, 0, Height, Width);
+            
+            //ez biztos rossz
+            g.FillRectangle(RibbonColor, 0, 0, Height/5, Width);
         }
     }
 }

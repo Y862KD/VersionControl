@@ -21,8 +21,9 @@ namespace FejlesztesiMintak_Y862KD
         public IToyFactory Factory
         {
             get { return _factory; }
-            set 
-            { _factory = value;
+            set
+            {
+                _factory = value;
                 DisplayNext();
             }
         }
@@ -53,7 +54,7 @@ namespace FejlesztesiMintak_Y862KD
             var toy = Factory.CreateNew();
             _toys.Add(toy);
             toy.Left = -toy.Width;
-            mainPanel.Controls.Add(toy);            
+            mainPanel.Controls.Add(toy);
 
         }
 
@@ -65,10 +66,10 @@ namespace FejlesztesiMintak_Y862KD
             {
                 toy.MoveToy();
                 if (toy.Left > maxPosition)
-                    maxPosition = toy.Left;    
-            }   
+                    maxPosition = toy.Left;
+            }
 
-            if (maxPosition > 1000) 
+            if (maxPosition > 1000)
             {
                 var toy = _toys[0];
                 _toys.Remove(toy);
@@ -89,18 +90,21 @@ namespace FejlesztesiMintak_Y862KD
             {
                 BallColor = buttonColorSelect.BackColor
             };
-            
+
         }
 
         private void buttonPresent_Click(object sender, EventArgs e)
         {
             Factory = new PresentFactory
-            { BoxColor = buttonBox.BackColor };
+            {
+                BoxColor = buttonBox.BackColor,
+                RibbonColor = buttonRibbon.BackColor
+            };
         }
 
         private void buttonColorSelect_Click(object sender, EventArgs e)
         {
-            
+
             var button = (Button)sender;
             var colorSelect = new ColorDialog();
 

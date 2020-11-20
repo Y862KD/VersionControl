@@ -11,10 +11,11 @@ namespace FejlesztesiMintak_Y862KD.Entities
     public class PresentFactory : IToyFactory
     {
         public  Color BoxColor { get; set; }
+        public Color RibbonColor { get; set; }
 
         public Toy CreateNew()
         {
-            return new Present(BoxColor);
+            return new Present(BoxColor,RibbonColor);
         }
     }
 }
