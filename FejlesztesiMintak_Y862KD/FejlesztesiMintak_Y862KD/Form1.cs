@@ -27,6 +27,12 @@ namespace FejlesztesiMintak_Y862KD
             }
         }
 
+        public Form1()
+        {
+            InitializeComponent();
+            Factory = new CarFactory();
+        }
+
         private void DisplayNext()
         {
             if (_nextToy != null)
@@ -38,11 +44,6 @@ namespace FejlesztesiMintak_Y862KD
 
         }
 
-        public Form1()
-        {
-            InitializeComponent();
-            Factory = new CarFactory();
-        }
 
         private void createTimer_Tick(object sender, EventArgs e)
         {
@@ -82,6 +83,17 @@ namespace FejlesztesiMintak_Y862KD
         private void buttonBall_Click(object sender, EventArgs e)
         {
             Factory = new BallFactory();
+        }
+
+        private void buttonColorSelect_Click(object sender, EventArgs e)
+        {
+            buttonColorSelect.BackColor = Color.Khaki;
+            var button = (Button)sender;
+            var colorSelect = new ColorDialog();
+
+            colorSelect.Color = button.BackColor;
+            if (colorSelect.ShowDialog() != DialogResult.OK) return;
+            button.BackColor = colorSelect.Color;
         }
     }
 }

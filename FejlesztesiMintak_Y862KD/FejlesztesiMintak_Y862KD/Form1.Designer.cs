@@ -36,6 +36,7 @@ namespace FejlesztesiMintak_Y862KD
             this.buttonCar = new System.Windows.Forms.Button();
             this.buttonBall = new System.Windows.Forms.Button();
             this.labelNext = new System.Windows.Forms.Label();
+            this.buttonColorSelect = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -88,11 +89,21 @@ namespace FejlesztesiMintak_Y862KD
             this.labelNext.TabIndex = 2;
             this.labelNext.Text = "Coming next:";
             // 
+            // buttonColorSelect
+            // 
+            this.buttonColorSelect.Location = new System.Drawing.Point(122, 64);
+            this.buttonColorSelect.Name = "buttonColorSelect";
+            this.buttonColorSelect.Size = new System.Drawing.Size(75, 23);
+            this.buttonColorSelect.TabIndex = 3;
+            this.buttonColorSelect.UseVisualStyleBackColor = true;
+            this.buttonColorSelect.Click += new System.EventHandler(this.buttonColorSelect_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonColorSelect);
             this.Controls.Add(this.labelNext);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.buttonBall);
@@ -112,6 +123,7 @@ namespace FejlesztesiMintak_Y862KD
         private System.Windows.Forms.Label labelNext;
         private System.Windows.Forms.Button buttonBall;
         private System.Windows.Forms.Button buttonCar;
+        private System.Windows.Forms.Button buttonColorSelect;
     }
 }
 
