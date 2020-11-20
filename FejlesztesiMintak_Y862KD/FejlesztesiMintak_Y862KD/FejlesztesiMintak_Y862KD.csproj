@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0B4FADE-277C-497F-96C2-B823D3AF4288}</ProjectGuid>
+    <ProjectGuid>{C9050160-EC83-416E-81B8-DA29DCA99B9F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>FejlesztesiMintak_Y862KD</RootNamespace>
     <AssemblyName>FejlesztesiMintak_Y862KD</AssemblyName>
