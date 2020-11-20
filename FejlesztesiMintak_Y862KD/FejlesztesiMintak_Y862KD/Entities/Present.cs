@@ -22,9 +22,8 @@ namespace FejlesztesiMintak_Y862KD.Entities
         protected override void DrawImage(Graphics g)
         {
             g.FillRectangle(BoxColor, 0, 0, Height, Width);
-            
-            //ez biztos rossz
-            g.FillRectangle(RibbonColor, 0, 0, Height/5, Width);
+            g.FillRectangle(RibbonColor, Height/2-(Height/5/2), 0, Height / 5, Width);
+            g.FillRectangle(RibbonColor, 0, Height / 2 - (Height / 5 / 2), Height, Width / 5);
         }
     }
 }
