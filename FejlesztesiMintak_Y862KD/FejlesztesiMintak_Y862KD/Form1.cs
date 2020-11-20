@@ -32,6 +32,8 @@ namespace FejlesztesiMintak_Y862KD
             InitializeComponent();
             Factory = new CarFactory();
             buttonColorSelect.BackColor = Color.Khaki;
+            buttonBox.BackColor = Color.Green;
+            buttonRibbon.BackColor = Color.Yellow;
         }
 
         private void DisplayNext()
@@ -90,6 +92,12 @@ namespace FejlesztesiMintak_Y862KD
             
         }
 
+        private void buttonPresent_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory
+            { BoxColor = buttonBox.BackColor };
+        }
+
         private void buttonColorSelect_Click(object sender, EventArgs e)
         {
             
@@ -100,5 +108,7 @@ namespace FejlesztesiMintak_Y862KD
             if (colorSelect.ShowDialog() != DialogResult.OK) return;
             button.BackColor = colorSelect.Color;
         }
+
+
     }
 }
