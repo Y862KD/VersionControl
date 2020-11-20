@@ -8,13 +8,14 @@ using System.Drawing;
 
 namespace FejlesztesiMintak_Y862KD.Entities
 {
-    class Ball : Label
+    public class Ball : Label
     {
         public Ball()
         {
             AutoSize = false;
             Height = 50;
             Width = Height;
+            Paint += Ball_Paint;
 
         }
 
@@ -22,6 +23,8 @@ namespace FejlesztesiMintak_Y862KD.Entities
         {
             DrawImage(e.Graphics);
         }
+
+
 
         private void DrawImage(Graphics g)
         {
