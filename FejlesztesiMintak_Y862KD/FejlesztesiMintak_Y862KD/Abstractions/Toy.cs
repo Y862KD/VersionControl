@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
+
 namespace FejlesztesiMintak_Y862KD.Abstractions
 {
     public abstract class Toy : Label
