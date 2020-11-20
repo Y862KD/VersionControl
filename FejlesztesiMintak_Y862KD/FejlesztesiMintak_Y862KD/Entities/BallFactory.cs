@@ -1,17 +1,21 @@
 ﻿using FejlesztesiMintak_Y862KD.Abstractions;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace FejlesztesiMintak_Y862KD.Entities
 {
-    public class BallFactory:IToyFactory
+    public class BallFactory : IToyFactory
     {
+        public Color BallColor { get; set; }
+
         public Toy CreateNew()
         {
-            return new Ball();
+            return new Ball(BallColor);
         }
     }
 }
+

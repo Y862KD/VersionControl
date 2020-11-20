@@ -31,6 +31,7 @@ namespace FejlesztesiMintak_Y862KD
         {
             InitializeComponent();
             Factory = new CarFactory();
+            buttonColorSelect.BackColor = Color.Khaki;
         }
 
         private void DisplayNext()
@@ -82,12 +83,16 @@ namespace FejlesztesiMintak_Y862KD
 
         private void buttonBall_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory
+            {
+                BallColor = buttonColorSelect.BackColor
+            };
+            
         }
 
         private void buttonColorSelect_Click(object sender, EventArgs e)
         {
-            buttonColorSelect.BackColor = Color.Khaki;
+            
             var button = (Button)sender;
             var colorSelect = new ColorDialog();
 
