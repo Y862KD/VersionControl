@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -65,6 +66,36 @@ namespace UnitTestExample.Test
             Assert.AreEqual(email, actualResult.Email);
             Assert.AreEqual(password, actualResult.Password);
             Assert.AreEqual(Guid.Empty, actualResult.ID);
+        }
+
+
+        [
+            Test,
+            TestCase("csaba@huzian.hu","éáóab12334"),
+            TestCase("csaba@huzian.hu","Ábcs1234"),
+            TestCase("csaba@huzian.hu","avdsvdsfgds"),
+            TestCase("csaba@huzian.hu", "abcdABCD"),            
+        ]
+
+        public void TestRegisterValidateException(string email, string password)
+        {
+            //Arrange
+            var accountController = new AccountController();
+
+            //Act + (Assert)
+            try
+            {
+                var actualResult = accountController.Register(email, password);
+                Assert.Fail();
+            }
+            catch (Exception ex)
+            {
+
+                Assert.IsInstanceOf<ValidationException>(ex);
+            }
+
+
+
         }
 
 
