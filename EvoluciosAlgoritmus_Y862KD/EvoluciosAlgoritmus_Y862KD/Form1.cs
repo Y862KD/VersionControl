@@ -22,6 +22,11 @@ namespace EvoluciosAlgoritmus_Y862KD
 
             ga = gc.ActivateDisplay();
             this.Controls.Add(ga);
+
+            /*gc.AddPlayer();
+            gc.Start(true);*/
+
+
         }
     }
 }
