@@ -39,6 +39,8 @@ namespace EvoluciosAlgoritmus_Y862KD
             /*gc.AddPlayer();
             gc.Start(true);*/
 
+            buttonStrt.Enabled = false;
+
 
             //7. Iterációs lépés felépítése
             gc.GameOver += Gc_GameOver;
@@ -50,6 +52,7 @@ namespace EvoluciosAlgoritmus_Y862KD
 
             gc.Start();
 
+            
 
         }
 
@@ -77,6 +80,7 @@ namespace EvoluciosAlgoritmus_Y862KD
             {
                 winnerBrain = winners.FirstOrDefault().Brain.Clone();
                 gc.GameOver -= Gc_GameOver;
+                buttonStrt.Enabled = true;
                 return;
             }
 
@@ -98,6 +102,15 @@ namespace EvoluciosAlgoritmus_Y862KD
                     gc.AddPlayer(b.Mutate());
             }
             gc.Start();
+        }
+
+        private void buttonStrt_Click(object sender, EventArgs e)
+        {
+            gc.ResetCurrentLevel();
+            gc.AddPlayer(winnerBrain.Clone());
+            gc.AddPlayer();
+            ga.Focus();
+            gc.Start(true);
         }
     }
 }
